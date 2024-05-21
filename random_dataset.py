@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 np.random.seed(42)
 
 # Generate 50 points for each class with reduced standard deviation
-n_samples_per_class = 50
-std_dev = 0.7  # Reduced standard deviation for tighter clustering
+n_samples_per_class = 100
+std_dev = 0.4  # Reduced standard deviation for tighter clustering
 
 # Class 1: centered around (1, 1)
 class_1 = std_dev * np.random.randn(n_samples_per_class, 2) + [1, 1]
@@ -40,7 +40,7 @@ plt.title('Synthetic Dataset with Two Classes (Closer Clusters)')
 plt.show()
 
 # Save dataset for use in perceptron training
-np.savez('synthetic_dataset_closer_classes.npz', X=X, y=y)
+np.savez('synthetic_dataset.npz', X=X, y=y)
 
 # Print the dataset shape
 print("Dataset shape:", dataset.shape)

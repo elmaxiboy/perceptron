@@ -3,16 +3,10 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
 # Load dataset
-dataset = np.load("synthetic_dataset_closer_classes.npz")
+dataset = np.load("synthetic_dataset.npz")
 coordinates = dataset['X']
 labels = dataset['y']
 
-# # Generate labels based on the dataset
-# for i in range(dataset.shape[0]):
-#     if dataset[i][0] > 3:
-#         labels[i][0] = -1
-#     else:
-#         labels[i][0] = 1  
 
 # Map labels to colors
 column_colors = {-1: 'r', 1: 'g'}
@@ -54,7 +48,7 @@ def perceptron(point, label):
 # Animation update function
 def update(frame):
     global i, consecutive_no_update, iter
-    if consecutive_no_update >= max_iteration:
+    if consecutive_no_update >= 100:
         plt.close()
         return
     perceptron(coordinates[i, :], labels[i])
